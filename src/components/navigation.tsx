@@ -10,11 +10,10 @@ import { getAreasInOrder } from '@/data/profile';
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const areas = getAreasInOrder();
-
   return (
-    <nav className="bg-white shadow-lg fixed w-full z-50">
+    <nav className="bg-white shadow-lg fixed w-full z-50 border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">          <div className="flex items-center">
+        <div className="flex justify-between h-16"><div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
               <Image 
                 src="/images/heroes-logo.svg" 

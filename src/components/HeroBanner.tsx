@@ -1,56 +1,57 @@
 'use client';
 
+import Image from 'next/image';
 import { TrendingUp, Target, BookOpen, Heart, Cpu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-interface HeroBannerProps {
-  variant?: 'green' | 'blue';
-}
-
-export default function HeroBanner({ variant = 'green' }: HeroBannerProps) {
-  const bgColor = variant === 'green' 
-    ? 'bg-gradient-to-r from-green-50 to-green-100' 
-    : 'bg-gradient-to-r from-blue-50 to-blue-100';
-  
-  const accentColor = variant === 'green' ? 'text-green-600' : 'text-blue-600';
-  const buttonColor = variant === 'green' 
-    ? 'bg-green-600 hover:bg-green-700' 
-    : 'bg-blue-600 hover:bg-blue-700';
-
-  return (
-    <section className={`${bgColor} py-16 px-4 rounded-lg mx-4 my-8 shadow-lg`}>
-      <div className="max-w-6xl mx-auto">
+export default function HeroBanner() {
+  // Using dark professional theme
+  const bgColor = 'bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900';
+  const accentColor = 'text-white';
+  const buttonColor = 'bg-blue-600 hover:bg-blue-700';
+    return (
+    <section className={`${bgColor} py-20 px-4 relative overflow-hidden`}>
+      <div className="absolute inset-0 bg-black opacity-40"></div>
+      <div className="absolute inset-0">
+        <Image
+          src="/images/business-overview.png"
+          alt="Business Overview"
+          fill
+          className="object-cover opacity-30"
+          priority
+        />
+      </div>
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-12">
           <h1 className={`text-5xl font-bold ${accentColor} mb-4`}>
             HEROES INVEST
           </h1>
-          <p className="text-xl text-gray-700 mb-6 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
             Empowering Your Investment Journey Through Comprehensive Solutions
           </p>
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <div className="flex items-center gap-2 text-gray-600">
+          <div className="flex flex-wrap justify-center gap-6 mb-8">
+            <div className="flex items-center gap-2 text-gray-300 bg-white bg-opacity-10 px-4 py-2 rounded-lg">
               <TrendingUp className="w-5 h-5" />
               <span>Capital Growth</span>
             </div>
-            <div className="flex items-center gap-2 text-gray-600">
+            <div className="flex items-center gap-2 text-gray-300 bg-white bg-opacity-10 px-4 py-2 rounded-lg">
               <BookOpen className="w-5 h-5" />
               <span>Education</span>
             </div>
-            <div className="flex items-center gap-2 text-gray-600">
+            <div className="flex items-center gap-2 text-gray-300 bg-white bg-opacity-10 px-4 py-2 rounded-lg">
               <Target className="w-5 h-5" />
               <span>Performance</span>
             </div>
-            <div className="flex items-center gap-2 text-gray-600">
+            <div className="flex items-center gap-2 text-gray-300 bg-white bg-opacity-10 px-4 py-2 rounded-lg">
               <Heart className="w-5 h-5" />
               <span>Wellness</span>
             </div>
-            <div className="flex items-center gap-2 text-gray-600">
+            <div className="flex items-center gap-2 text-gray-300 bg-white bg-opacity-10 px-4 py-2 rounded-lg">
               <Cpu className="w-5 h-5" />
               <span>Technology</span>
             </div>
-          </div>
-          <Button 
-            className={`${buttonColor} text-white px-8 py-3 rounded-lg font-semibold text-lg`}
+          </div>          <Button 
+            className={`${buttonColor} text-white px-8 py-3 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all`}
             onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
           >
             Explore Our Solutions
@@ -58,10 +59,10 @@ export default function HeroBanner({ variant = 'green' }: HeroBannerProps) {
         </div>
         
         <div className="text-center">
-          <p className="text-gray-600 mb-2">
+          <p className="text-gray-300 mb-2">
             * Registration opening soon!
           </p>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-400">
             Join thousands of investors who trust Heroes Invest for their financial journey
           </p>
         </div>

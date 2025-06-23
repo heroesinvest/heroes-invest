@@ -1,24 +1,37 @@
+import Image from 'next/image';
 import Navigation from '@/components/navigation';
 import HeroBanner from '@/components/HeroBanner';
 import BusinessAreas from '@/components/BusinessAreas';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       <Navigation />
-      
-      {/* Hero Banner */}
-      <HeroBanner variant="green" />
-      
-      {/* Business Areas */}
-      <BusinessAreas />
-      
-      {/* Footer Section */}
+        {/* Main Content with proper spacing for fixed navigation */}
+      <main className="pt-16">
+        {/* Hero Banner */}
+        <HeroBanner />
+        
+        {/* Business Areas */}
+        <div className="bg-gray-50">
+          <BusinessAreas />
+        </div>
+      </main>
+        {/* Footer Section */}
       <footer className="py-16 px-4 bg-gray-900 text-white">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold mb-4">Heroes Invest</h2>
-            <p className="text-gray-300 mb-6">Empowering Your Investment Journey</p>
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center space-x-3 mb-4">
+              <Image 
+                src="/images/heroes-logo.svg" 
+                alt="Heroes Invest" 
+                width={40} 
+                height={40} 
+                className="h-10 w-10 filter brightness-0 invert"
+              />
+              <h2 className="text-3xl font-bold">Heroes Invest</h2>
+            </div>
+            <p className="text-gray-300 mb-6 text-lg">Empowering Your Investment Journey</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
