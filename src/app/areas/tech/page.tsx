@@ -2,10 +2,14 @@ import Navigation from '@/components/navigation';
 import { Cpu, Zap, Bot, Smartphone, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import profile from '@/data/profile';
+import { getAreaBySlug } from '@/data/profile';
 
 export default function TechPage() {
-  const area = profile.areas.tech;
+  const area = getAreaBySlug('tech');
+  
+  if (!area) {
+    return <div>Area not found</div>;
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -58,17 +62,64 @@ export default function TechPage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </div>      </section>
 
+      {/* Products */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Technology Features
+            Our Technology Products
           </h2>
           
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {area.products.map((product) => (
+              <div key={product.id} className="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+                <div className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-xl font-bold text-gray-900">{product.title}</h3>
+                    {product.status.waitingList?.enabled ? (
+                      <span className="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                        Waitlist
+                      </span>
+                    ) : product.status.enable ? (
+                      <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                        Available
+                      </span>
+                    ) : null}
+                  </div>
+                  
+                  <p className="text-gray-600 mb-2">{product.subtitle.join(' • ')}</p>
+                  <p className="text-gray-700 mb-4 line-clamp-2">{product.description}</p>
+                  
+                  <div className="space-y-2 mb-6">
+                    {product.sections.general.highlights.slice(0, 3).map((highlight, index) => (
+                      <div key={index} className="flex items-center text-sm text-gray-600">
+                        <div className="w-2 h-2 bg-indigo-500 rounded-full mr-2"></div>
+                        {highlight}
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <Link href={product.href}>
+                    <Button className="w-full bg-indigo-600 hover:bg-indigo-700">
+                      {product.status.waitingList?.enabled ? 'Join Waitlist' : 'Learn More'}
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="py-16 px-4 bg-indigo-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            Why Choose Heroes Tech?          </h2>
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6 rounded-lg bg-indigo-50 border border-indigo-200">
+            <div className="text-center p-6 rounded-lg bg-white shadow-sm">
               <Bot className="w-12 h-12 text-indigo-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">AI-Powered Analysis</h3>
               <p className="text-gray-600">
@@ -76,7 +127,7 @@ export default function TechPage() {
               </p>
             </div>
             
-            <div className="text-center p-6 rounded-lg bg-indigo-50 border border-indigo-200">
+            <div className="text-center p-6 rounded-lg bg-white shadow-sm">
               <Zap className="w-12 h-12 text-indigo-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Automated Trading</h3>
               <p className="text-gray-600">
@@ -84,7 +135,7 @@ export default function TechPage() {
               </p>
             </div>
             
-            <div className="text-center p-6 rounded-lg bg-indigo-50 border border-indigo-200">
+            <div className="text-center p-6 rounded-lg bg-white shadow-sm">
               <Smartphone className="w-12 h-12 text-indigo-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Mobile Platform</h3>
               <p className="text-gray-600">

@@ -3,34 +3,28 @@
 import Link from 'next/link';
 import { TrendingUp, Target, BookOpen, Heart, Cpu, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import profile from '@/data/profile';
+import { getAreasInOrder } from '@/data/profile';
 
 const iconMap = {
-  capital: TrendingUp,
-  care: Heart,
   education: BookOpen,
+  care: Heart,
   performance: Target,
   tech: Cpu,
+  capital: TrendingUp,
 };
 
 const colorMap = {
-  capital: {
-    bg: 'bg-green-50 hover:bg-green-100',
-    icon: 'text-green-600',
-    button: 'bg-green-600 hover:bg-green-700',
-    border: 'border-green-200 hover:border-green-300',
+  education: {
+    bg: 'bg-purple-50 hover:bg-purple-100',
+    icon: 'text-purple-600',
+    button: 'bg-purple-600 hover:bg-purple-700',
+    border: 'border-purple-200 hover:border-purple-300',
   },
   care: {
     bg: 'bg-blue-50 hover:bg-blue-100',
     icon: 'text-blue-600',
     button: 'bg-blue-600 hover:bg-blue-700',
     border: 'border-blue-200 hover:border-blue-300',
-  },
-  education: {
-    bg: 'bg-purple-50 hover:bg-purple-100',
-    icon: 'text-purple-600',
-    button: 'bg-purple-600 hover:bg-purple-700',
-    border: 'border-purple-200 hover:border-purple-300',
   },
   performance: {
     bg: 'bg-orange-50 hover:bg-orange-100',
@@ -44,10 +38,16 @@ const colorMap = {
     button: 'bg-indigo-600 hover:bg-indigo-700',
     border: 'border-indigo-200 hover:border-indigo-300',
   },
+  capital: {
+    bg: 'bg-green-50 hover:bg-green-100',
+    icon: 'text-green-600',
+    button: 'bg-green-600 hover:bg-green-700',
+    border: 'border-green-200 hover:border-green-300',
+  },
 };
 
 export default function BusinessAreas() {
-  const areas = Object.values(profile.areas);
+  const areas = getAreasInOrder();
 
   return (
     <section className="py-16 px-4">

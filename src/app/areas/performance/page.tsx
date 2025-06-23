@@ -2,10 +2,14 @@ import Navigation from '@/components/navigation';
 import { Target, BarChart3, TrendingUp, Zap, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import profile from '@/data/profile';
+import { getAreaBySlug } from '@/data/profile';
 
 export default function PerformancePage() {
-  const area = profile.areas.performance;
+  const area = getAreaBySlug('performance');
+  
+  if (!area) {
+    return <div>Area not found</div>;
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -58,17 +62,60 @@ export default function PerformancePage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </div>      </section>
 
+      {/* Products */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Performance Features
+            Our Performance Products
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {area.products.map((product) => (
+              <div key={product.id} className="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+                <div className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-xl font-bold text-gray-900">{product.title}</h3>
+                    {product.trial?.available && (
+                      <span className="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                        {product.trial.maxPeriod} Trial
+                      </span>
+                    )}
+                  </div>
+                  
+                  <p className="text-gray-600 mb-2">{product.subtitle.join(' • ')}</p>
+                  <p className="text-gray-700 mb-4 line-clamp-2">{product.description}</p>
+                  
+                  <div className="space-y-2 mb-6">
+                    {product.sections.general.highlights.slice(0, 3).map((highlight, index) => (
+                      <div key={index} className="flex items-center text-sm text-gray-600">
+                        <div className="w-2 h-2 bg-orange-500 rounded-full mr-2"></div>
+                        {highlight}
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <Link href={product.href}>
+                    <Button className="w-full bg-orange-600 hover:bg-orange-700">
+                      Learn More
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="py-16 px-4 bg-orange-50">
+        <div className="max-w-6xl mx-auto">          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            Why Choose Heroes Performance?
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6 rounded-lg bg-orange-50 border border-orange-200">
+            <div className="text-center p-6 rounded-lg bg-white shadow-sm">
               <BarChart3 className="w-12 h-12 text-orange-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Advanced Analytics</h3>
               <p className="text-gray-600">

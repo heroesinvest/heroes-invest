@@ -4,9 +4,11 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Menu, X, TrendingUp } from 'lucide-react';
+import { getAreasInOrder } from '@/data/profile';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const areas = getAreasInOrder();
 
   return (
     <nav className="bg-white shadow-lg fixed w-full z-50">
@@ -22,31 +24,26 @@ export default function Navigation() {
             <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors">
               Home
             </Link>
-            <Link href="/about" className="text-gray-700 hover:text-blue-600 transition-colors">
-              About
-            </Link>
-            <Link href="/services" className="text-gray-700 hover:text-blue-600 transition-colors">
-              Services
-            </Link>
-            <Link href="/market" className="text-gray-700 hover:text-blue-600 transition-colors">
-              Market
-            </Link>
-            <Link href="/dashboard" className="text-gray-700 hover:text-blue-600 transition-colors">
-              Dashboard
-            </Link>
+            {areas.map((area) => (
+              <Link 
+                key={area.id}
+                href={area.href} 
+                className="text-gray-700 hover:text-blue-600 transition-colors capitalize"
+              >
+                {area.title}
+              </Link>
+            ))}
             <Link href="/contact" className="text-gray-700 hover:text-blue-600 transition-colors">
               Contact
             </Link>
-          </div>
-
-          {/* Auth Buttons */}
+          </div>          {/* Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link href="/auth/signin">
+            <Link href="/contact">
               <Button variant="outline" size="sm">
-                Login
+                Learn More
               </Button>
             </Link>
-            <Link href="/auth/signin">
+            <Link href="/contact">
               <Button size="sm">
                 Get Started
               </Button>
@@ -63,9 +60,7 @@ export default function Navigation() {
             </button>
           </div>
         </div>
-      </div>
-
-      {/* Mobile Navigation */}
+      </div>      {/* Mobile Navigation */}
       {isOpen && (        <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
             <Link
@@ -75,34 +70,16 @@ export default function Navigation() {
             >
               Home
             </Link>
-            <Link
-              href="/about"
-              className="block px-3 py-2 text-gray-700 hover:text-blue-600"
-              onClick={() => setIsOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="/services"
-              className="block px-3 py-2 text-gray-700 hover:text-blue-600"
-              onClick={() => setIsOpen(false)}
-            >
-              Services
-            </Link>
-            <Link
-              href="/market"
-              className="block px-3 py-2 text-gray-700 hover:text-blue-600"
-              onClick={() => setIsOpen(false)}
-            >
-              Market
-            </Link>
-            <Link
-              href="/dashboard"
-              className="block px-3 py-2 text-gray-700 hover:text-blue-600"
-              onClick={() => setIsOpen(false)}
-            >
-              Dashboard
-            </Link>
+            {areas.map((area) => (
+              <Link
+                key={area.id}
+                href={area.href} 
+                className="block px-3 py-2 text-gray-700 hover:text-blue-600 capitalize"
+                onClick={() => setIsOpen(false)}
+              >
+                {area.title}
+              </Link>
+            ))}
             <Link
               href="/contact"
               className="block px-3 py-2 text-gray-700 hover:text-blue-600"
@@ -113,12 +90,12 @@ export default function Navigation() {
             
             <div className="pt-4 border-t">
               <div className="px-3 py-2 space-y-2">
-                <Link href="/auth/signin" className="block">
+                <Link href="/contact" className="block">
                   <Button variant="outline" size="sm" className="w-full">
-                    Login
+                    Learn More
                   </Button>
                 </Link>
-                <Link href="/auth/signin" className="block">
+                <Link href="/contact" className="block">
                   <Button size="sm" className="w-full">
                     Get Started
                   </Button>
