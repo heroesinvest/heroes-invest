@@ -23,15 +23,15 @@ export default function CapitalPage() {
             Back to Home
           </Link>
           
-          <div className="flex items-center mb-6">
-            <TrendingUp className="w-16 h-16 text-green-600 mr-6" />
+          <div className="flex flex-col sm:flex-row sm:items-center mb-6">
+            <TrendingUp className="w-12 h-12 sm:w-16 sm:h-16 text-green-600 mb-4 sm:mb-0 sm:mr-6" />
             <div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-2">{area.title}</h1>
-              <p className="text-xl text-green-600">{area.subtitle.join(' • ')}</p>
+              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">{area.title}</h1>
+              <p className="text-lg sm:text-xl text-green-600">{area.subtitle.join(' • ')}</p>
             </div>
           </div>
           
-          <p className="text-lg text-gray-700 max-w-4xl">
+          <p className="text-base sm:text-lg text-gray-700 max-w-4xl">
             {area.description}
           </p>
         </div>
@@ -39,7 +39,8 @@ export default function CapitalPage() {
 
       {/* Content */}
       <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Approach</h2>
               <div className="space-y-4">
@@ -73,7 +74,8 @@ export default function CapitalPage() {
               </div>
             </div>
           </div>
-        </div>      </section>
+        </div>
+      </section>
 
       {/* Products */}
       <section className="py-16 px-4 bg-white">

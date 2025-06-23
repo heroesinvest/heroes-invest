@@ -22,14 +22,13 @@ export default function HeroBanner() {
         />
       </div>
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-12">
-          <h1 className={`text-5xl font-bold ${accentColor} mb-4`}>
+        <div className="text-center mb-12">          <h1 className={`text-3xl sm:text-4xl lg:text-5xl font-bold ${accentColor} mb-4`}>
             HEROES INVEST
           </h1>
-          <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-200 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
             Empowering Your Investment Journey Through Comprehensive Solutions
           </p>
-          <div className="flex flex-wrap justify-center gap-6 mb-8">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-6 mb-6 sm:mb-8 px-4">
             <div className="flex items-center gap-2 text-gray-300 bg-white bg-opacity-10 px-4 py-2 rounded-lg">
               <TrendingUp className="w-5 h-5" />
               <span>Capital Growth</span>

@@ -21,16 +21,15 @@ export default function TechPage() {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
           </Link>
-          
-          <div className="flex items-center mb-6">
-            <Cpu className="w-16 h-16 text-indigo-600 mr-6" />
+            <div className="flex flex-col sm:flex-row sm:items-center mb-6">
+            <Cpu className="w-12 h-12 sm:w-16 sm:h-16 text-indigo-600 mb-4 sm:mb-0 sm:mr-6" />
             <div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-2">{area.title}</h1>
-              <p className="text-xl text-indigo-600">{area.subtitle.join(' • ')}</p>
+              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">{area.title}</h1>
+              <p className="text-lg sm:text-xl text-indigo-600">{area.subtitle.join(' • ')}</p>
             </div>
           </div>
           
-          <p className="text-lg text-gray-700 max-w-4xl">
+          <p className="text-base sm:text-lg text-gray-700 max-w-4xl">
             {area.description}
           </p>
         </div>
