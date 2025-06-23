@@ -48,10 +48,10 @@ export interface BusinessArea {
   title: string;
   href: string;
   subtitle: string[];
-  description: string;
-  logo: {
+  description: string;  logo: {
     blue: string;
     green: string;
+    main?: string;
   };
   images: string[];
   videos: string[];
@@ -129,13 +129,13 @@ const profile = {
       title: 'Education',
       href: '/areas/education',
       subtitle: ['Knowledge is power'],
-      description: 'Comprehensive financial education and investment training programs.',
-      logo: {
-        blue: '/images/areas/education/logo-education-blue.svg',
-        green: '/images/areas/education/logo-education-green.svg',
+      description: 'Comprehensive financial education and investment training programs.',      logo: {
+        blue: '/images/areas/education/Education_Blue.svg',
+        green: '/images/areas/education/Education_Green.svg',
+        main: '/images/areas/education/logo-education-main.svg',
       },
       images: [
-        '/images/areas/education/education-hero.jpg',
+        '/images/areas/education/logo-education-main.png',
         '/images/areas/education/education-classroom.jpg',
         '/images/areas/education/education-online.jpg',
       ],
@@ -147,10 +147,9 @@ const profile = {
         enable: true,
         visible: true,
       },
-      sections: {
-        general: {
+      sections: {        general: {
           images: [
-            '/images/areas/education/education-hero.jpg',
+            '/images/areas/education/logo-education-main.png',
             '/images/areas/education/education-classroom.jpg',
           ],
           videos: [
@@ -358,15 +357,15 @@ const profile = {
       title: 'Care',
       href: '/areas/care',
       subtitle: ['Your wellbeing matters'],
-      description: 'Comprehensive wellness and care services for a balanced investment lifestyle.',
-      logo: {
-        blue: '/images/areas/care/logo-care-blue.svg',
-        green: '/images/areas/care/logo-care-green.svg',
+      description: 'Comprehensive wellness and care services for a balanced investment lifestyle.',      logo: {
+        blue: '/images/areas/care/Care_Blue.svg',
+        green: '/images/areas/care/Care_Green.svg',
+        main: '/images/areas/care/logo-care-main.svg',
       },
       images: [
-        '/images/areas/care/care-hero.jpg',
-        '/images/areas/care/wellness-coaching.jpg',
-        '/images/areas/care/mental-health.jpg',
+        '/images/areas/care/logo-care-main.png',
+        '/images/areas/care/psy-sessions-1.jpg',
+        '/images/areas/care/wellbeing-lifestyle-1.jpg',
       ],
       videos: [
         '/videos/care/intro-care.mp4',
@@ -376,11 +375,10 @@ const profile = {
         enable: true,
         visible: true,
       },
-      sections: {
-        general: {
+      sections: {        general: {
           images: [
-            '/images/areas/care/care-hero.jpg',
-            '/images/areas/care/wellness-coaching.jpg',
+            '/images/areas/care/psy-sessions-1.jpg',
+            '/images/areas/care/wellbeing-lifestyle-1.jpg',
           ],
           videos: [
             '/videos/care/intro-care.mp4',
@@ -543,15 +541,15 @@ const profile = {
       title: 'Performance',
       href: '/areas/performance',
       subtitle: ['Optimize your results'],
-      description: 'Performance tracking and optimization tools for maximizing investment returns.',
-      logo: {
-        blue: '/images/areas/performance/logo-performance-blue.svg',
-        green: '/images/areas/performance/logo-performance-green.svg',
+      description: 'Performance tracking and optimization tools for maximizing investment returns.',      logo: {
+        blue: '/images/areas/performance/Performance_Blue.svg',
+        green: '/images/areas/performance/Performance_Green.svg',
+        main: '/images/areas/performance/logo-performance-main.svg',
       },
       images: [
-        '/images/areas/performance/performance-hero.jpg',
-        '/images/areas/performance/analytics-dashboard.jpg',
-        '/images/areas/performance/portfolio-tracking.jpg',
+        '/images/areas/performance/logo-performance-main.png',
+        '/images/areas/performance/trading-journal-1.png',
+        '/images/areas/performance/monte-carlo-1.png',
       ],
       videos: [
         '/videos/performance/intro-performance.mp4',
@@ -561,11 +559,10 @@ const profile = {
         enable: true,
         visible: true,
       },
-      sections: {
-        general: {
+      sections: {        general: {
           images: [
-            '/images/areas/performance/performance-hero.jpg',
-            '/images/areas/performance/analytics-dashboard.jpg',
+            '/images/areas/performance/trading-journal-1.png',
+            '/images/areas/performance/trading-log-1.png',
           ],
           videos: [
             '/videos/performance/intro-performance.mp4',
@@ -737,15 +734,15 @@ const profile = {
       title: 'Tech',
       href: '/areas/tech',
       subtitle: ['Innovation drives success'],
-      description: 'Cutting-edge technology solutions for modern investment management.',
-      logo: {
-        blue: '/images/areas/tech/logo-tech-blue.svg',
-        green: '/images/areas/tech/logo-tech-green.svg',
+      description: 'Cutting-edge technology solutions for modern investment management.',      logo: {
+        blue: '/images/areas/tech/Tech_Blue.svg',
+        green: '/images/areas/tech/Tech_Green.svg',
+        main: '/images/areas/tech/logo-tech-main.svg',
       },
       images: [
-        '/images/areas/tech/tech-hero.jpg',
+        '/images/areas/tech/logo-tech-main.png',
+        '/images/areas/tech/prediction-1.png',
         '/images/areas/tech/ai-analysis.jpg',
-        '/images/areas/tech/automated-trading.jpg',
       ],
       videos: [
         '/videos/tech/intro-tech.mp4',
@@ -755,10 +752,9 @@ const profile = {
         enable: true,
         visible: true,
       },
-      sections: {
-        general: {
+      sections: {        general: {
           images: [
-            '/images/areas/tech/tech-hero.jpg',
+            '/images/areas/tech/prediction-1.png',
             '/images/areas/tech/ai-analysis.jpg',
           ],
           videos: [
@@ -927,13 +923,13 @@ const profile = {
       title: 'Capital',
       href: '/areas/capital',
       subtitle: ['Enrich your future'],
-      description: 'Investment solutions for growing your capital with strategic portfolio management.',
-      logo: {
-        blue: '/images/areas/capital/logo-capital-blue.svg',
-        green: '/images/areas/capital/logo-capital-green.svg',
+      description: 'Investment solutions for growing your capital with strategic portfolio management.',      logo: {
+        blue: '/images/areas/capital/Capital_Blue.svg',
+        green: '/images/areas/capital/Capital_Green.svg',
+        main: '/images/areas/capital/logo-capital-main.svg',
       },
       images: [
-        '/images/areas/capital/capital-hero.jpg',
+        '/images/areas/capital/logo-capital-main.png',
         '/images/areas/capital/portfolio-management.jpg',
         '/images/areas/capital/wealth-growth.jpg',
       ],
@@ -945,10 +941,9 @@ const profile = {
         enable: true,
         visible: true,
       },
-      sections: {
-        general: {
+      sections: {        general: {
           images: [
-            '/images/areas/capital/capital-hero.jpg',
+            '/images/areas/capital/logo-capital-main.png',
             '/images/areas/capital/portfolio-management.jpg',
           ],
           videos: [
