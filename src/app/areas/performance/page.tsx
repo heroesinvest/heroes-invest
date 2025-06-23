@@ -37,23 +37,32 @@ export default function PerformancePage() {
       </section>
 
       <section className="py-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="max-w-6xl mx-auto">          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Performance Optimization</h2>
               <div className="space-y-4">
-                {area.content.general.text.map((paragraph, index) => (
+                {area.sections.general.text.map((paragraph, index) => (
                   <p key={index} className="text-gray-700 leading-relaxed">
                     {paragraph}
                   </p>
                 ))}
               </div>
+              
+              {area.sections.general.cta && (
+                <div className="mt-6">
+                  <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-700 text-white">
+                    <Link href={area.sections.general.cta.url}>
+                      {area.sections.general.cta.text}
+                    </Link>
+                  </Button>
+                </div>
+              )}
             </div>
             
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Analytics Services</h2>
               <div className="grid grid-cols-1 gap-4">
-                {area.content.general.highlights.map((highlight, index) => (
+                {area.sections.general.highlights.map((highlight, index) => (
                   <div key={index} className="flex items-center p-4 bg-orange-50 rounded-lg border border-orange-200">
                     <div className="w-3 h-3 bg-orange-600 rounded-full mr-4"></div>
                     <span className="text-gray-900 font-medium">{highlight}</span>

@@ -84,13 +84,12 @@ export default function BusinessAreas() {
                     ))}
                   </div>
                 </div>
-                
-                <div className="mb-4">
+                  <div className="mb-4">
                   <p className="text-sm text-gray-700 mb-3">
                     {area.description}
                   </p>
                   <div className="space-y-1">
-                    {area.content.general.highlights.map((highlight, index) => (
+                    {area.sections.general.highlights.map((highlight, index) => (
                       <div key={index} className="text-xs text-gray-600 flex items-center">
                         <div className={`w-1.5 h-1.5 rounded-full ${colors.icon.replace('text-', 'bg-')} mr-2`}></div>
                         {highlight}
