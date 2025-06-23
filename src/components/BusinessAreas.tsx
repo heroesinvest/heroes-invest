@@ -52,24 +52,23 @@ export default function BusinessAreas() {
             Comprehensive services designed to support every aspect of your investment journey
           </p>
         </div>        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mt-12">
           {areas.map((area) => {
             const colors = colorMap[area.id as keyof typeof colorMap];
             
             return (              <div
                 key={area.id}
-                className={`${colors.bg} ${colors.border} border-2 rounded-xl p-6 pt-12 transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex flex-col h-full relative overflow-visible`}
-              >
-                <div className="text-center mb-4">
-                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 inline-flex items-center justify-center w-32 h-32 bg-white rounded-full shadow-lg border-4 border-gray-100 p-4">
+                className={`${colors.bg} ${colors.border} border-2 rounded-xl p-6 pt-16 transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex flex-col h-full relative overflow-visible`}
+              ><div className="text-center mb-4">
+                  <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 w-40 h-40 flex items-center justify-center">
                     <Image
                       src={area.logo.main || area.logo.blue}
                       alt={`${area.title} logo`}
-                      width={96}
-                      height={96}
-                      className="w-full h-full object-contain"
+                      width={120}
+                      height={120}
+                      className="w-full h-full object-contain drop-shadow-lg"
                     />
-                  </div>                  <h3 className="text-xl font-bold text-gray-900 mb-2 mt-6">
+                  </div>                  <h3 className="text-xl font-bold text-gray-900 mb-2 mt-8">
                     {area.title}
                   </h3>
                   <div className="text-sm text-gray-600 mb-3">
