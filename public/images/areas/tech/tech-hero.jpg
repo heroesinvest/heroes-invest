@@ -1,0 +1,6 @@
+<!-- Placeholder image for Tech Hero -->
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#f0f9ff"/>
+  <text x="400" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#4338ca">Technology Solutions</text>
+  <text x="400" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#6366f1">Innovation drives success</text>
+</svg>
