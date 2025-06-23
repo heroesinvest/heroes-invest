@@ -56,10 +56,9 @@ export default function BusinessAreas() {
           {areas.map((area) => {
             const colors = colorMap[area.id as keyof typeof colorMap];
             
-            return (
-              <div
+            return (              <div
                 key={area.id}
-                className={`${colors.bg} ${colors.border} border-2 rounded-xl p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-xl`}
+                className={`${colors.bg} ${colors.border} border-2 rounded-xl p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex flex-col h-full`}
               >
                 <div className="text-center mb-4">                  <div className="inline-flex items-center justify-center w-20 h-20 mb-4 bg-gray-50 rounded-lg p-3">
                     <Image
@@ -78,8 +77,7 @@ export default function BusinessAreas() {
                       <div key={index}>{sub}</div>
                     ))}
                   </div>
-                </div>
-                <div className="mb-4">
+                </div>                <div className="mb-4 flex-grow">
                   <p className="text-sm text-gray-700 mb-3">
                     {area.description}
                   </p>
@@ -93,14 +91,16 @@ export default function BusinessAreas() {
                   </div>
                 </div>
                 
-                <Link href={area.href}>
-                  <Button 
-                    className={`w-full ${colors.button} text-white text-sm py-2 rounded-lg font-medium flex items-center justify-center gap-2 group`}
-                  >
-                    Learn More
-                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
+                <div className="mt-auto">
+                  <Link href={area.href}>
+                    <Button 
+                      className={`w-full ${colors.button} text-white text-sm py-2 rounded-lg font-medium flex items-center justify-center gap-2 group`}
+                    >
+                      Learn More
+                      <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                </div>
               </div>
             );
           })}
