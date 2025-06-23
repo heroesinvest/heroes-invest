@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  metadataBase: new URL("https://heroesinvest.com"),
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -44,11 +45,12 @@ export const metadata: Metadata = {
     title: "Heroes Invest - Professional Investment Management",
     description: "Build your wealth with professional investment strategies. Portfolio management, real-time market data, and expert financial advice.",
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
